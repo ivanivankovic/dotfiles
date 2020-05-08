@@ -13,12 +13,12 @@ if [ "$TMUX" = "" ]; then tmux; fi
 # Path to your oh-my-zsh installation.
 
 export ZSH="/home/fenrir/.oh-my-zsh"
-
+source "$ZSH/custom/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_IGNORE_TERM_COLORS=true
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
