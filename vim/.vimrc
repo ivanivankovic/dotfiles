@@ -12,6 +12,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugins go here
 Plugin 'tpope/vim-fugitive'
+Plugin 'preservim/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'davidhalter/jedi-vim'
 " TO HERE
 call vundle#end()
 filetype plugin indent on
@@ -110,3 +113,8 @@ let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
+"
+" Nerd tree 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
