@@ -17,6 +17,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'jmcantrell/vim-virtualenv'
 " TO HERE
 call vundle#end()
 filetype plugin indent on
@@ -117,12 +118,38 @@ let g:solarized_termtrans=1
 colorscheme solarized
 "
 " Nerd tree 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+nmap <F6> :NERDTreeToggle<CR>
+
+
 
 " Vim-airline conf
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+nnoremap <silent> <Leader>l :exe "vertical resize -5"<CR>
+nnoremap <silent> <Leader>j :exe "resize +5" <CR>
+nnoremap <silent> <Leader>k :exe "resize -5"<CR>
+nnoremap <silent> <Leader>h :exe "vertical resize +5" <CR>
 
+
+" Add the virtualenv's site-packages to vim path
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif
+set omnifunc=jedi#completions
+let g:jedi#force_py_version = '3'
+
+" Set clipboard
+set clipboard=unnamedplus
