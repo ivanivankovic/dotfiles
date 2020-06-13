@@ -18,6 +18,16 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'xolox/vim-notes'
+Plugin 'ervandew/supertab'
+Plugin 'HendrikPetertje/vimify'
+Plugin 'xolox/vim-misc'
+Plugin 'taglist.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'dense-analysis/ale'
+Plugin 'itchyny/calendar.vim'
 " TO HERE
 call vundle#end()
 filetype plugin indent on
@@ -153,3 +163,17 @@ let g:jedi#force_py_version = '3'
 
 " Set clipboard
 set clipboard=unnamedplus
+
+" Vim notes config 
+let g:notes_directories = ['~/notes']
+let g:notes_suffix = '.txt'
+
+" Vimify settings
+" let g:spotify_token = readfile('.spotify_token')[0]
+set foldmethod=syntax
+
+let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|markdown.pandoc|org|rst|tex|text'
+let vim_markdown_preview_toggle=2
+let g:vim_markdown_folding_disabled = 1
+
+let g:calendar_frame = 'default'
