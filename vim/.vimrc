@@ -28,6 +28,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'dense-analysis/ale'
 Plugin 'itchyny/calendar.vim'
+Plugin 'lambdalisue/suda.vim'
 " TO HERE
 call vundle#end()
 filetype plugin indent on
@@ -173,7 +174,7 @@ let g:notes_suffix = '.txt'
 set foldmethod=syntax
 
 let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|markdown.pandoc|org|rst|tex|text'
-let vim_markdown_preview_toggle=2
-let g:vim_markdown_folding_disabled = 1
 
 let g:calendar_frame = 'default'
+
+let g:suda#prefix = ['suda://', 'sudo://', 'sd']
